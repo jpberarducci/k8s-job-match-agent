@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 460" role="img"
+     aria-label="Los dos pods de la aplicación quedan agendados en los dos nodos worker, nunca en el control-plane. Un Service los agrupa bajo una sola dirección estable. kubectl port-forward abre un túnel desde localhost:8000 hacia el puerto 80 del Service, que enruta a uno de los pods sanos. Ese pod le hace una llamada saliente a la API de Anthropic y devuelve el resultado.">
+  <defs>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="8" refY="5"
+             markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1c3a5c"></path>
+    </marker>
+    <marker id="arrowAccent2" viewBox="0 0 10 10" refX="8" refY="5"
+             markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c1502a"></path>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="920" height="460" fill="#eaf1f7"></rect>
+
+  <!-- namespace boundary -->
+  <rect x="230" y="24" width="560" height="230" rx="2" fill="none" stroke="#1c3a5c" stroke-width="1.2" stroke-dasharray="2 5" opacity="0.6"></rect>
+  <text x="240" y="16" font-size="9.5" fill="#1c3a5c" opacity="0.6" letter-spacing="0.05em" font-family="ui-monospace, Menlo, monospace">NAMESPACE job-match-agent</text>
+
+  <!-- control plane, dim -->
+  <rect x="252" y="46" width="130" height="50" rx="2" fill="none" stroke="#1c3a5c" stroke-width="1.1" opacity="0.45"></rect>
+  <text x="317" y="66" font-size="9.5" fill="#1c3a5c" text-anchor="middle" opacity="0.55" font-family="ui-monospace, Menlo, monospace">control-plane</text>
+  <text x="317" y="80" font-size="8.5" fill="#1c3a5c" text-anchor="middle" opacity="0.5" font-family="ui-monospace, Menlo, monospace">(sin pods de la app)</text>
+
+  <!-- worker 1 + pod -->
+  <rect x="410" y="46" width="170" height="90" rx="2" fill="none" stroke="#1c3a5c" stroke-width="1.3"></rect>
+  <text x="420" y="64" font-size="10" fill="#1c3a5c" opacity="0.75" font-family="ui-monospace, Menlo, monospace">worker</text>
+  <rect x="424" y="76" width="142" height="46" rx="2" fill="none" stroke="#1c3a5c" stroke-width="1.3"></rect>
+  <text x="495" y="96" font-size="9.5" fill="#1c3a5c" text-anchor="middle" font-weight="600" font-family="ui-monospace, Menlo, monospace">pod A</text>
+  <text x="495" y="110" font-size="8.5" fill="#1c3a5c" text-anchor="middle" opacity="0.7" font-family="ui-monospace, Menlo, monospace">:8000 /health</text>
+
+  <!-- worker 2 + pod -->
+  <rect x="610" y="46" width="170" height="90" rx="2" fill="none" stroke="#1c3a5c" stroke-width="1.3"></rect>
+  <text x="620" y="64" font-size="10" fill="#1c3a5c" opacity="0.75" font-family="ui-monospace, Menlo, monospace">worker2</text>
+  <rect x="624" y="76" width="142" height="46" rx="2" fill="none" stroke="#1c3a5c" stroke-width="1.3"></rect>
+  <text x="695" y="96" font-size="9.5" fill="#1c3a5c" text-anchor="middle" font-weight="600" font-family="ui-monospace, Menlo, monospace">pod B</text>
+  <text x="695" y="110" font-size="8.5" fill="#1c3a5c" text-anchor="middle" opacity="0.7" font-family="ui-monospace, Menlo, monospace">:8000 /health</text>
+
+  <!-- service -->
+  <rect x="452" y="176" width="264" height="46" rx="2" fill="none" stroke="#1c3a5c" stroke-width="1.4"></rect>
+  <text x="584" y="198" font-size="10.5" fill="#1c3a5c" text-anchor="middle" font-weight="600" font-family="ui-monospace, Menlo, monospace">Service job-match-agent</text>
+  <text x="584" y="212" font-size="9" fill="#1c3a5c" text-anchor="middle" opacity="0.7" font-family="ui-monospace, Menlo, monospace">:80 → :8000</text>
+
+  <!-- lines service to pods -->
+  <line x1="495" y1="176" x2="495" y2="136" stroke="#1c3a5c" stroke-width="1.1"></line>
+  <line x1="695" y1="176" x2="695" y2="136" stroke="#1c3a5c" stroke-width="1.1"></line>
+
+  <!-- host terminal -->
+  <rect x="20" y="176" width="180" height="60" rx="2" fill="none" stroke="#c1502a" stroke-width="1.4"></rect>
+  <text x="30" y="196" font-size="10" fill="#c1502a" font-weight="600" font-family="ui-monospace, Menlo, monospace">tu terminal</text>
+  <text x="30" y="212" font-size="9" fill="#c1502a" opacity="0.85" font-family="ui-monospace, Menlo, monospace">kubectl port-forward</text>
+  <text x="30" y="224" font-size="9" fill="#c1502a" opacity="0.85" font-family="ui-monospace, Menlo, monospace">localhost:8000</text>
+
+  <!-- tunnel arrow -->
+  <line x1="200" y1="199" x2="446" y2="199" stroke="#c1502a" stroke-width="1.8" marker-end="url(#arrowAccent2)"></line>
+  <text x="215" y="189" font-size="9.5" fill="#c1502a" font-family="ui-monospace, Menlo, monospace">túnel: 8000 → 80</text>
+
+  <!-- pod to claude -->
+  <line x1="780" y1="99" x2="878" y2="99" stroke="#1c3a5c" stroke-width="1.3" marker-end="url(#arrow2)"></line>
+  <text x="784" y="90" font-size="9" fill="#1c3a5c" opacity="0.75" font-family="ui-monospace, Menlo, monospace">POST /jobs/match</text>
+
+  <rect x="800" y="120" width="118" height="52" rx="2" fill="none" stroke="#1c3a5c" stroke-width="1.3"></rect>
+  <text x="859" y="142" font-size="9.5" fill="#1c3a5c" text-anchor="middle" font-weight="600" font-family="ui-monospace, Menlo, monospace">Anthropic API</text>
+  <text x="859" y="156" font-size="8.5" fill="#1c3a5c" text-anchor="middle" opacity="0.7" font-family="ui-monospace, Menlo, monospace">Claude</text>
+
+  <path d="M878,130 C 850,150 800,150 780,120" fill="none" stroke="#1c3a5c" stroke-width="1.1" stroke-dasharray="2 3" marker-end="url(#arrow2)"></path>
+  <text x="790" y="164" font-size="8.5" fill="#1c3a5c" opacity="0.65" font-family="ui-monospace, Menlo, monospace">score + cover letter</text>
+
+  <!-- readiness note -->
+  <text x="317" y="290" font-size="9.5" fill="#1c3a5c" opacity="0.6" font-family="ui-monospace, Menlo, monospace">readinessProbe / livenessProbe → GET /health cada 10-20s en cada pod</text>
+  <line x1="252" y1="278" x2="580" y2="278" stroke="#1c3a5c" stroke-width="0.8" opacity="0.35" stroke-dasharray="1 4"></line>
+</svg>

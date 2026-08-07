@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: job-match-agent
+  namespace: job-match-agent
+spec:
+  selector:
+    app: job-match-agent
+  ports:
+    - port: 80
+      targetPort: 8000
+  type: ClusterIP
