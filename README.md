@@ -10,11 +10,17 @@ nodos, `Service`, `Secret`, `Namespace` y health probes
 
 **Build & load** — cómo la imagen cruza de tu Docker al Docker aislado de `kind`:
 
-![Build & load](diagrams/01-build-and-load.svg)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="diagrams/01-build-and-load-dark.svg">
+  <img src="diagrams/01-build-and-load.svg" alt="Build & load">
+</picture>
 
 **Topología y camino de un pedido** — dónde queda cada pod y cómo llega un request de punta a punta:
 
-![Topología y camino de un pedido](diagrams/02-topology-and-request-path.svg)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="diagrams/02-topology-and-request-path-dark.svg">
+  <img src="diagrams/02-topology-and-request-path.svg" alt="Topología y camino de un pedido">
+</picture>
 
 ## Prerrequisitos
 
@@ -139,7 +145,9 @@ k8s-job-match-agent/
 │   └── secret.example.yaml   # plantilla, no el secret real
 ├── diagrams/
 │   ├── 01-build-and-load.svg
-│   └── 02-topology-and-request-path.svg
+│   ├── 01-build-and-load-dark.svg
+│   ├── 02-topology-and-request-path.svg
+│   └── 02-topology-and-request-path-dark.svg
 ├── kind-config.yaml           # 3 nodos: 1 control-plane + 2 workers
 └── README.md
 ```
